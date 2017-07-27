@@ -7,7 +7,7 @@ require 'recipe/common.php';
 set('ssh_type', 'native');
 set('ssh_multiplexing', true);
 
-set('repository', 'git@github.com:ohayou-ikechan/composer-test.git');
+set('repository', 'https://github.com/ohayou-ikechan/composer-test.git');
 set('git_tty', true);
 set('shared_files', []);
 set('shared_dirs', []);
@@ -15,19 +15,19 @@ set('writable_dirs', []);
 
 // Servers
 
-server('development', '52.197.57.63')
-    ->user('ubuntu')
-    ->identityFile()
-    ->set('deploy_path', '/var/www/html');
+// server('development', '52.197.57.63')
+//     ->user('ubuntu')
+//     ->identityFile()
+//     ->set('deploy_path', '/var/www/html');
 
-
+serverList('./config/servers.yml');
 // Tasks
 
 desc('Restart PHP-FPM service');
 task('php-fpm:restart', function () {
     // The user must have rights for restart service
     // /etc/sudoers: username ALL=NOPASSWD:/bin/systemctl restart php-fpm.service
-    run('sudo systemctl restart php-fpm.service');
+    run('sudo systemctl restart php7.1-fpm.service');
 });
 after('deploy:symlink', 'php-fpm:restart');
 
@@ -48,4 +48,4 @@ task('deploy', [
 ]);
 
 // [Optional] if deploy fails automatically unlock.
-//after('deploy:failed', 'deploy:unlock');
+after('deploy:failed', 'deploy:unlock');

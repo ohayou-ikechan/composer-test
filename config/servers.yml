@@ -1,0 +1,24 @@
+development:
+    host:          52.197.57.63
+    user:          ubuntu
+    identity_file:
+        private_key: "~/.ssh/web-rider-aws.pem"
+    stage:         development
+    deploy_path:   "/var/www/bunken"
+    branch:        master
+production:
+    host:          HOST_FOR_PRODUCTION
+    user:          ubuntu
+    identity_file:
+        private_key: "~/.ssh/web-rider-aws.pem"
+    stage:         production
+    deploy_path:   "/var/www/bunken"
+    branch:        master
+staging:
+    host:          HOST_FOR_STAGING
+    user:          ubuntu
+    identity_file:
+        private_key: "~/.ssh/web-rider-aws.pem"
+    stage:         staging
+    deploy_path:   "/var/www/bunken"
+    branch:        master
