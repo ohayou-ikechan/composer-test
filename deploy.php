@@ -7,7 +7,7 @@ require 'recipe/common.php';
 set('ssh_type', 'native');
 set('ssh_multiplexing', true);
 
-set('repository', 'https://github.com/ohayou-ikechan/composer-test.git');
+set('repository', 'git@github.com:Web-Rider01/bunken_tool.git');
 set('git_tty', true);
 set('shared_files', []);
 set('shared_dirs', []);
